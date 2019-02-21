@@ -19,5 +19,5 @@ class Solution(object):
 s="MCMXCIV"
 sol=Solution()
 sol.romanToInt(s)
-
+#output is 1994
 

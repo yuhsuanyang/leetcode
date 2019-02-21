@@ -44,7 +44,7 @@ int main(){
 		cout<<ans[i]<<' '; 
 	} 
 	return 0;
-	
+	//output is [1,2]
 };
 //iterator is a kind of pointer
 

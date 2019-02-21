@@ -18,7 +18,7 @@ class Solution(object):
 
 
 s=Solution()
-s.twoSum([3,3],6)
-s.twoSum([3,2,4],6)
-s.twoSum([2,7,11,15],9)
-s.twoSum([-1,-2,-3,-4,-5],-8)
+s.twoSum([3,3],6) #output is [0,1]
+s.twoSum([3,2,4],6) #output is [1,2]
+s.twoSum([2,7,11,15],9) #output is [0,1]
+s.twoSum([-1,-2,-3,-4,-5],-8) #output is [2,4]

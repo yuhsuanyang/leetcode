@@ -14,7 +14,7 @@ class Solution:
         def get_decomposed(nums):
             results = []
             for j in range(len(nums)):
-                results.append(nums[:j] + best_sum[can[j]] + can[j+1:])
+                results.append(nums[:j] + best_sum[nums[j]] + nums[j+1:])
             return results
 
         for i in range(3, n+1):

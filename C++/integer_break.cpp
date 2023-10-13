@@ -16,7 +16,8 @@ class Solution {
             vector<vector<int> >result;
             for (int i = 0; i < v.size(); i++){
                 vector<int> r;
-                r.insert(r.end(), v.begin(), v.begin() + i - 2);
+                int end = max(0, i - 2);
+                r.insert(r.end(), v.begin(), v.begin() + end);
                 r.insert(r.end(), best_sum[v[i]].begin(), best_sum[v[i]].end());
                 r.insert(r.end(), v.begin() + i + 1, v.end());
                 result.push_back(r);

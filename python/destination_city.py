@@ -1,17 +1,17 @@
 #no. 1436
 class Solution:
     def destCity(self, paths: List[List[str]]) -> str:
-        route = [paths[0]]
+        start, end = paths[0][0], paths[0][1]
         del paths[0]
         while(paths):
             for i, path in enumerate(paths):
-                if path[0] == route[-1][1]:
-                    route.append(path)
+                if path[0] == end:
+                    end = path[1]
                     del paths[i]
                     break
             for i, path in enumerate(paths):
-                if path[1] == route[0][0]:
-                    route.insert(0, path)
+                if path[1] == start:
+                    start = path[0]
                     del paths[i]
                     break
-        return route[-1][1]
+        return end

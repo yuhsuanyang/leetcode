@@ -1,33 +1,23 @@
 # no.5
 
 class Solution:
-    def checkPalindrome(self, s):
-        start, end = 0, len(s) - 1
-        while start < end:
-            if s[start] != s[end]:
-                return
-            start += 1
-            end -= 1
-        return s
-
     def longestPalindrome(self, s: str) -> str:
-        if len(s) == 1 or self.checkPalindrome(s):
-            return s
-        longest = s[0]
-        for i in range(len(s)):
-            if i + len(longest) >= len(s):
-                continue
-            for j in range(i + len(longest), len(s) + 1):
-                candidate = self.checkPalindrome(s[i: j])
-                if candidate and len(candidate) > len(longest):
-                    longest = candidate
-        return longest 
-
-
-if __name__ == "__main__":
-    sol = Solution()
-    print(sol.longestPalindrome('babad'))
-    print(sol.longestPalindrome('222020221'))
-    print(sol.longestPalindrome('cbbd'))
-
+        dp = []
+        n = len(s)
+        for i in range(n):
+            row = [0 for _ in range(n)]
+            dp.append(row)
+        ans = s[0]
+        for diff in range(0, n):
+            for i in range(n - diff):
+                j = i + diff
+                if s[i] == s[j]:
+                    if diff <= 1:
+                        dp[i][j] = 1
+                        ans = s[i: j + 1]
+                    else:
+                        if dp[i + 1][j - 1]:
+                            dp[i][j] = 1
+                            ans = s[i: j + 1]
+        return ans            
 
